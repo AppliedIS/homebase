@@ -1,0 +1,42 @@
+{
+    "options": {
+        "paths": {
+            "root": "",
+            "fonts": "",
+            "sprites": "",
+            "styles": "styles",
+            "mbtiles": "data"
+        },
+        "domains": [
+            "localhost:8080",
+            "127.0.0.1:8080"
+        ],
+        "formatQuality": {
+            "jpeg": 80,
+            "webp": 90,
+            "pngQuantization": false,
+            "png": 90
+        },
+        "maxScaleFactor": 3,
+        "maxSize": 2048,
+        "pbfAlias": "pbf",
+        "serveAllFonts": false,
+        "serveStaticMaps": true
+    },
+    "styles": {
+        "darkmatter": {
+            "style": "darkmatter.json"
+        },
+        "basic": {
+            "style": "basic.json"
+        },
+        "bright": {
+            "style": "bright.json"
+        }
+    },
+    "data": {
+        "ne-vector": {
+            "mbtiles": "natural_earth.vector.mbtiles"
+        }
+    }
+}
