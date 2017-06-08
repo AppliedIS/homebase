@@ -24,15 +24,29 @@
         "serveStaticMaps": true
     },
     "styles": {
-        "darkmatter": {
-            "style": "darkmatter.json"
+        "basic-v9": {
+          "style": "basic-v9-cdn.json",
+          "tilejson": {
+            "type": "overlay",
+            "bounds": [8.44806, 47.32023, 8.62537, 47.43468]
+          }
         },
-        "basic": {
-            "style": "basic.json"
-        },
-        "bright": {
-            "style": "bright.json"
+        "bright-v9": {
+          "style": "bright-v9-cdn.json",
+          "serve_rendered": false,
+          "tilejson": {
+            "type": "overlay",
+            "bounds": [8.44806, 47.32023, 8.62537, 47.43468]
+          }
+      },
+      "dark-v9": {
+        "style": "dark-v9-cdn.json",
+        "serve_rendered": false,
+        "tilejson": {
+          "type": "overlay",
+          "bounds": [8.44806, 47.32023, 8.62537, 47.43468]
         }
+      }
     },
     "data": {
         "ne-vector": {
