@@ -30,7 +30,7 @@
     }
   },
   "sprite": "sprites/darkmatter",
-  "glyphs": "glyphs/{fontstack}/{range}.pbf",
+  "glyphs": "fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -256,7 +256,9 @@
         "text-rotation-alignment": "map",
         "symbol-spacing": 500,
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Medium Italic",
+          "Klokantech Noto Sans Italic",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-size": 12
       },
@@ -1032,7 +1034,9 @@
         "text-transform": "uppercase",
         "symbol-spacing": 350,
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "symbol-placement": "line",
         "visibility": "visible",
@@ -1076,7 +1080,9 @@
         "text-size": 10,
         "symbol-spacing": 350,
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Light",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "symbol-placement": "line",
         "visibility": "visible",
@@ -1209,7 +1215,9 @@
         "text-size": 10,
         "text-transform": "uppercase",
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-justify": "center",
         "visibility": "visible",
@@ -1253,7 +1261,9 @@
         "text-size": 10,
         "text-transform": "uppercase",
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-justify": "center",
         "visibility": "visible",
@@ -1297,7 +1307,9 @@
         "text-size": 10,
         "text-transform": "uppercase",
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-justify": "left",
         "visibility": "visible",
@@ -1356,7 +1368,9 @@
         },
         "text-transform": "uppercase",
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-justify": "left",
         "visibility": "visible",
@@ -1435,7 +1449,9 @@
         },
         "text-transform": "uppercase",
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-justify": "left",
         "visibility": "visible",
@@ -1514,7 +1530,9 @@
         },
         "text-transform": "uppercase",
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-justify": "left",
         "visibility": "visible",
@@ -1572,7 +1590,9 @@
         "visibility": "visible",
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-transform": "uppercase",
         "text-size": 10
@@ -1618,7 +1638,9 @@
         "visibility": "visible",
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-transform": "uppercase",
         "text-size": {
@@ -1675,7 +1697,9 @@
         "visibility": "visible",
         "text-field": "{name_en}",
         "text-font": [
-          "Open Sans Regular"
+          "Metropolis Regular",
+          "Klokantech Noto Sans Regular",
+          "Klokantech Noto Sans CJK Regular"
         ],
         "text-transform": "uppercase",
         "text-size": {
