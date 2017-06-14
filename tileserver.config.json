@@ -32,8 +32,8 @@
                 "bounds": [8.44806, 47.32023, 8.62537, 47.43468]
             }
         },
-        "dark-matter-ne": {
-            "style": "dark-matter-ne.json",
+        "homebase-dark-ne": {
+            "style": "homebase-dark-ne.json",
             "serve_rendered": false,
             "tilejson": {
                 "type": "overlay",
