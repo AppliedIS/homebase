@@ -24,30 +24,6 @@
         "serveStaticMaps": true
     },
     "styles": {
-        "planet-darkbox": {
-            "style": "planet-darkbox.json",
-            "serve_rendered": false,
-            "tilejson": {
-                "type": "overlay",
-                "bounds": [8.44806, 47.32023, 8.62537, 47.43468]
-            }
-        },
-        "planet-dark-matter": {
-            "style": "planet-dark-matter.json",
-            "serve_rendered": false,
-            "tilejson": {
-                "type": "overlay",
-                "bounds": [8.44806, 47.32023, 8.62537, 47.43468]
-            }
-        },
-        "planet-positron": {
-            "style": "planet-positron.json",
-            "serve_rendered": false,
-            "tilejson": {
-                "type": "overlay",
-                "bounds": [8.44806, 47.32023, 8.62537, 47.43468]
-            }
-        },
         "ne-homebase-dark": {
             "style": "ne-homebase-dark.json",
             "serve_rendered": false,
