@@ -13,6 +13,8 @@ RUN mkdir -p /homebase
 COPY . /homebase
 WORKDIR /homebase
 
+VOLUME /homebase/data
+
 RUN tar -xvzf nm-node7.10.tar.gz
 
 EXPOSE 8080
