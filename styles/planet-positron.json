@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "Positron",
+  "name": "Planet - Positron",
   "metadata": {
     "mapbox:autocomposite": false,
     "mapbox:type": "template",
@@ -31,11 +31,11 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://free.tilehosting.com/data/v3.json?key={key}"
+      "url": "mbtiles://planet_z0_z14.mbtiles"
     }
   },
-  "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
-  "glyphs": "https://free.tilehosting.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "sprite": "sprites/positron",
+  "glyphs": "glyphs/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
