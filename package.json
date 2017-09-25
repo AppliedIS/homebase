@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -e json,mbtiles -x \"npm run server\"",
+    "start": "npm run server",
     "server": "tileserver-gl-light -c tileserver.config.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
