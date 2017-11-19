@@ -1,4 +1,4 @@
-# Home Base
+# HomeBase
 
-A stand-alone vector tile server with some predefined styles. Suitable for use
+A stand-alone vector and raster tile server based on [TileServer GL](https://github.com/klokantech/tileserver-gl). Suitable for use
 on disconnected networks.
