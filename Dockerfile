@@ -8,6 +8,9 @@ LABEL VERSION="2.0.0" \
 
 MAINTAINER Homebase Developers <https://github.com/appliedis/homebase>
 
+ARG FEDORA_REPO http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23
+ARG GPG_CHECK 1
+
 # Copy and unpack tileserver-gl source
 COPY tileserver-gl-v2.2.0.tar.gz .
 RUN tar -zxvf tileserver-gl-v2.2.0.tar.gz
@@ -51,9 +54,9 @@ RUN rm -rf /var/cache/yum
 # Add the fedora repo to get updated versions of gcc and g++
 RUN echo "[warning:fedora]" | tee /etc/yum.repos.d/FedoraRepo.repo
 RUN echo "name=fedora" | tee -a /etc/yum.repos.d/FedoraRepo.repo
-RUN echo "mirrorlist=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23&arch=\$basearch" | tee -a /etc/yum.repos.d/FedoraRepo.repo
+RUN echo "mirrorlist=${FEDORA_REPO}&arch=\$basearch" | tee -a /etc/yum.repos.d/FedoraRepo.repo
 RUN echo "enabled=1" | tee -a /etc/yum.repos.d/FedoraRepo.repo
-RUN echo "gpgcheck=1" | tee -a /etc/yum.repos.d/FedoraRepo.repo
+RUN echo "gpgcheck=${GPG_CHECK}" | tee -a /etc/yum.repos.d/FedoraRepo.repo
 RUN echo "gpgkey=https://getfedora.org/static/34EC9CBA.txt" | tee -a /etc/yum.repos.d/FedoraRepo.repo
 RUN yum -y update gcc g++
 
