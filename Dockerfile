@@ -8,8 +8,8 @@ LABEL VERSION="2.0.0" \
 
 MAINTAINER Homebase Developers <https://github.com/appliedis/homebase>
 
-ARG FEDORA_REPO http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23
-ARG GPG_CHECK 1
+ARG FEDORA_REPO=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23
+ARG GPG_CHECK=1
 
 # Copy and unpack tileserver-gl source
 COPY tileserver-gl-v2.2.0.tar.gz .
@@ -58,7 +58,7 @@ RUN echo "mirrorlist=${FEDORA_REPO}&arch=\$basearch" | tee -a /etc/yum.repos.d/F
 RUN echo "enabled=1" | tee -a /etc/yum.repos.d/FedoraRepo.repo
 RUN echo "gpgcheck=${GPG_CHECK}" | tee -a /etc/yum.repos.d/FedoraRepo.repo
 RUN echo "gpgkey=https://getfedora.org/static/34EC9CBA.txt" | tee -a /etc/yum.repos.d/FedoraRepo.repo
-RUN yum -y update gcc g++
+RUN yum -y update gcc
 
 # Symlink to libcurl-gnutls
 RUN ln -s /usr/lib64/libcurl.so.4 /usr/lib64/libcurl-gnutls.so.4
