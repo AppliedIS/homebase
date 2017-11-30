@@ -63,7 +63,16 @@ RUN yum -y update gcc
 # Symlink to libcurl-gnutls
 RUN ln -s /usr/lib64/libcurl.so.4 /usr/lib64/libcurl-gnutls.so.4
 
-# Copy homebase files and install node dependencies
+# Copy homebase files
 COPY ./src /tileserver-gl
 RUN cd /tileserver-gl
-RUN npm install node-gyp && npm install --production
+
+# Copy and unpack node-gyp source
+RUN mkdir -p /tileserver-gl/node_modules
+COPY node-gyp.tar.gz /tileserver-gl/node_modules
+RUN tar -zxvf /tileserver-gl/node_modules/node-gyp.tar.gz && rm /tileserver-gl/node_modules/node-gyp.tar.gz
+COPY node-pre-gyp.tar.gz /tileserver-gl/node_modules
+RUN tar -zxvf /tileserver-gl/node_modules/node-pre-gyp.tar.gz && rm /tileserver-gl/node_modules/node-pre-gyp.tar.gz
+
+# Install remaining node dependencies
+RUN npm install --production
