@@ -21,13 +21,10 @@ WORKDIR /tileserver-gl
 EXPOSE 80
 ENTRYPOINT ["/tileserver-gl/run_homebase.sh"]
 
-RUN yum -y install epel-release
-RUN yum -q -y update
-RUN yum -q -y upgrade
-
-# Install centos dependencies
+# Install centos dependencies and add fedora repo to get updated version of gcc
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
-RUN yum -y install \
+RUN yum -y install epel-release \
+    && yum -y install \
            cairo \
            cairo-devel \
            gcc \
@@ -39,17 +36,15 @@ RUN yum -y install \
            nodejs-6.12.0 \
            protobuf-devel \
            which \
-           xorg-x11-server-Xvfb
-RUN rm -rf /var/cache/yum
-
-# Add the fedora repo to get updated versions of gcc and g++
-RUN echo "[warning:fedora]" | tee /etc/yum.repos.d/FedoraRepo.repo
-RUN echo "name=fedora" | tee -a /etc/yum.repos.d/FedoraRepo.repo
-RUN echo "mirrorlist=${FEDORA_REPO}&arch=\$basearch" | tee -a /etc/yum.repos.d/FedoraRepo.repo
-RUN echo "enabled=1" | tee -a /etc/yum.repos.d/FedoraRepo.repo
-RUN echo "gpgcheck=${GPG_CHECK}" | tee -a /etc/yum.repos.d/FedoraRepo.repo
-RUN echo "gpgkey=https://getfedora.org/static/34EC9CBA.txt" | tee -a /etc/yum.repos.d/FedoraRepo.repo
-RUN yum -y update gcc
+           xorg-x11-server-Xvfb \
+    && echo "[warning:fedora]" | tee /etc/yum.repos.d/FedoraRepo.repo \
+    && echo "name=fedora" | tee -a /etc/yum.repos.d/FedoraRepo.repo \
+    && echo "mirrorlist=${FEDORA_REPO}&arch=\$basearch" | tee -a /etc/yum.repos.d/FedoraRepo.repo \
+    && echo "enabled=1" | tee -a /etc/yum.repos.d/FedoraRepo.repo \
+    && echo "gpgcheck=${GPG_CHECK}" | tee -a /etc/yum.repos.d/FedoraRepo.repo \
+    && echo "gpgkey=https://getfedora.org/static/34EC9CBA.txt" | tee -a /etc/yum.repos.d/FedoraRepo.repo \
+    && yum -y update gcc \
+    && rm -rf /var/cache/yum
 
 # Symlink to libcurl-gnutls
 RUN ln -s /usr/lib64/libcurl.so.4 /usr/lib64/libcurl-gnutls.so.4
