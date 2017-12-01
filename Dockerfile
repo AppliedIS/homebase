@@ -13,11 +13,11 @@ ARG GPG_CHECK=1
 
 # Copy and unpack tileserver-gl source
 COPY tileserver-gl-v2.2.0.tar.gz .
-RUN tar -zxvf tileserver-gl-v2.2.0.tar.gz
+RUN tar xvfz tileserver-gl-v2.2.0.tar.gz
 
 ENV NODE_ENV="production"
 VOLUME /tileserver-gl/data
-WORKDIR /tileserver-gl/data
+WORKDIR /tileserver-gl
 EXPOSE 80
 ENTRYPOINT ["/tileserver-gl/run_homebase.sh"]
 
@@ -30,22 +30,13 @@ RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
 RUN yum -y install \
            cairo \
            cairo-devel \
-           cairomm-devel \
-           curl \
            gcc \
            gcc-c++ \
-           libcurl-devel \
-           libgcc.x86_64 \
-           libXxf86vm-devel \
            make \
            mesa-dri-drivers \
-           mesa-libgbm \
            mesa-libGL-devel \
            mesa-libGLES \
            nodejs-6.12.0 \
-           nodejs-devel-6.12.0 \
-           protobuf \
-           protobuf-compiler \
            protobuf-devel \
            which \
            xorg-x11-server-Xvfb
@@ -64,15 +55,7 @@ RUN yum -y update gcc
 RUN ln -s /usr/lib64/libcurl.so.4 /usr/lib64/libcurl-gnutls.so.4
 
 # Copy homebase files
-COPY ./src /tileserver-gl
-RUN cd /tileserver-gl
+COPY src .
 
-# Copy and unpack node-gyp source
-RUN mkdir -p /tileserver-gl/node_modules
-COPY node-gyp.tar.gz /tileserver-gl/node_modules
-RUN tar -zxvf /tileserver-gl/node_modules/node-gyp.tar.gz && rm /tileserver-gl/node_modules/node-gyp.tar.gz
-COPY node-pre-gyp.tar.gz /tileserver-gl/node_modules
-RUN tar -zxvf /tileserver-gl/node_modules/node-pre-gyp.tar.gz && rm /tileserver-gl/node_modules/node-pre-gyp.tar.gz
-
-# Install remaining node dependencies
-RUN npm install --production
+COPY node_modules.tar.gz .
+RUN tar xvfz node_modules.tar.gz
