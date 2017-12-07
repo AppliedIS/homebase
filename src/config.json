@@ -26,7 +26,7 @@
     "styles": {
         "ne-homebase-dark": {
             "style": "ne-homebase-dark.json",
-            "serve_rendered": false,
+            "serve_rendered": true,
             "tilejson": {
                 "type": "overlay",
                 "bounds": [8.44806, 47.32023, 8.62537, 47.43468]

@@ -30,7 +30,7 @@
     }
   },
   "sprite": "sprites/darkmatter",
-  "glyphs": "fonts/{fontstack}/{range}.pbf",
+  "glyphs": "{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
