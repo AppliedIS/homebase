@@ -1,0 +1,227 @@
+{
+  "version": 8,
+  "name": "Basic",
+  "sources": {
+    "mapbox": {
+      "url": "mbtiles://chicago.mbtiles",
+      "type": "vector"
+    }
+  },
+  "sprite": "sprites/basic-v9",
+  "glyphs": "{fontstack}/{range}.pbf",
+  "metadata": {
+    "mapbox:autocomposite": true,
+    "mapbox:type": "template"
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#dedede"
+      },
+      "interactive": true
+    },
+    {
+      "id": "waterway",
+      "type": "line",
+      "source": "mapbox",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "in",
+          "class",
+          "river",
+          "canal"
+        ]
+      ],
+      "paint": {
+        "line-color": "#a0cfdf",
+        "line-width": {
+          "base": 1.4,
+          "stops": [
+            [
+              8,
+              0.5
+            ],
+            [
+              20,
+              15
+            ]
+          ]
+        }
+      },
+      "interactive": true
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "mapbox",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "#a0cfdf"
+      },
+      "interactive": true
+    },
+    {
+      "id": "building",
+      "type": "fill",
+      "source": "mapbox",
+      "source-layer": "building",
+      "paint": {
+        "fill-color": "#d6d6d6"
+      },
+      "interactive": true
+    },
+    {
+      "interactive": true,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "all",
+          [
+            "in",
+            "class",
+            "motorway_link",
+            "street",
+            "street_limited",
+            "service",
+            "track",
+            "pedestrian",
+            "path",
+            "link"
+          ],
+          [
+            "in",
+            "structure",
+            "none",
+            "ford"
+          ]
+        ]
+      ],
+      "type": "line",
+      "source": "mapbox",
+      "id": "transportation",
+      "paint": {
+        "line-color": "#efefef",
+        "line-width": {
+          "base": 1.55,
+          "stops": [
+            [
+              4,
+              0.25
+            ],
+            [
+              20,
+              30
+            ]
+          ]
+        }
+      },
+      "source-layer": "transportation"
+    },
+    {
+      "interactive": true,
+      "minzoom": 5,
+      "layout": {
+        "icon-image": "{maki}-11",
+        "text-offset": [
+          0,
+          0.5
+        ],
+        "text-field": "{name}",
+        "text-font": [
+          "Noto Sans Bold"
+        ],
+        "text-max-width": 8,
+        "text-anchor": "top",
+        "text-size": 11,
+        "icon-size": 1
+      },
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "Point"
+        ],
+        [
+          "all",
+          [
+            "==",
+            "scalerank",
+            1
+          ],
+          [
+            "==",
+            "localrank",
+            1
+          ]
+        ]
+      ],
+      "type": "symbol",
+      "source": "mapbox",
+      "id": "poi",
+      "paint": {
+        "text-color": "#666",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(255,255,255,0.75)",
+        "text-halo-blur": 1
+      },
+      "source-layer": "poi"
+    },
+    {
+      "interactive": true,
+      "layout": {
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Regular"
+        ],
+        "text-max-width": 10,
+        "text-size": {
+          "stops": [
+            [
+              3,
+              14
+            ],
+            [
+              8,
+              22
+            ]
+          ]
+        }
+      },
+      "maxzoom": 12,
+      "filter": [
+        "==",
+        "$type",
+        "Point"
+      ],
+      "type": "symbol",
+      "source": "mapbox",
+      "id": "place",
+      "paint": {
+        "text-color": "#666",
+        "text-halo-color": "rgba(255,255,255,0.75)",
+        "text-halo-width": 1,
+        "text-halo-blur": 1
+      },
+      "source-layer": "place"
+    }
+  ]
+}

@@ -30,14 +30,22 @@
             "tilejson": {
                 "type": "overlay"
             }
+        },
+        "basic": {
+            "style": "basic-v9.json",
+            "serve_rendered": true,
+            "tilejson": {
+                "type": "overlay",
+                "bounds": [-88.505, 41.339, -87.066, 42.297]
+            }
         }
     },
     "data": {
         "ne-vector": {
             "mbtiles": "natural_earth.vector.mbtiles"
         },
-        "zurich": {
-            "mbtiles": "zurich_switzerland.mbtiles"
+        "chicago": {
+            "mbtiles": "chicago.mbtiles"
         }
     }
 }

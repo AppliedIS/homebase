@@ -12,27 +12,29 @@ ARG FEDORA_REPO=http://mirrors.fedoraproject.org/mirrorlist?repo=fedora-23
 ARG GPG_CHECK=1
 
 # Copy and unpack tileserver-gl source
-COPY tileserver-gl-v2.2.0.tar.gz .
+COPY tileserver-gl-v2.2.0.tar.gz /
 RUN tar xvfz tileserver-gl-v2.2.0.tar.gz
 
 ENV NODE_ENV="production"
-VOLUME /tileserver-gl/data
-WORKDIR /tileserver-gl
+VOLUME /homebase/data
+WORKDIR /homebase
 EXPOSE 80
-ENTRYPOINT ["/tileserver-gl/run_homebase.sh"]
+ENTRYPOINT ["/homebase/run.sh"]
 
 # Install centos dependencies and add fedora repo to get updated version of gcc
 RUN curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
 RUN yum -y install epel-release \
     && yum -y install \
-           cairo \
            cairo-devel \
            gcc \
            gcc-c++ \
            make \
            mesa-dri-drivers \
+           mesa-libgbm-devel \
            mesa-libGL-devel \
-           mesa-libGLES \
+           mesa-libGLES-devel \
+           libXxf86vm-devel \
+           llvm \
            nodejs-6.12.0 \
            protobuf-devel \
            which \
@@ -52,5 +54,5 @@ RUN ln -s /usr/lib64/libcurl.so.4 /usr/lib64/libcurl-gnutls.so.4
 # Copy homebase files
 COPY src .
 
-COPY node_modules.tar.gz .
-RUN tar xvfz node_modules.tar.gz
+COPY node_modules.tar.gz /tileserver-gl
+RUN cd /tileserver-gl && tar xvfz node_modules.tar.gz
