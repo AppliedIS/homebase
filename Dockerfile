@@ -1,6 +1,6 @@
-FROM appliedis/tileserver-gl:v2.2.0
+FROM appliedis/tileserver-gl:latest
 
-LABEL VERSION="3.0.0" \
+LABEL VERSION="3.1.0" \
     RUN="docker run -it -p 8080:80 appliedis/homebase:latest" \
     SOURCE="http://github.com/appliedis/homebase" \
     DESCRIPTION="Vector and raster tile server serving the OSM Planet file" \
